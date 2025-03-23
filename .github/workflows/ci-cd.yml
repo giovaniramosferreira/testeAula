@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
- 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,6 +23,9 @@ jobs:
           key: poetry-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
             poetry-${{ runner.os }}-
-
       - name: Instalar dependências
         run: poetry install --no-root
+      - name: Verificar PEP8
+        run: poetry run flake8 jogo.py
+      - name: Verificar Lint
+        run: poetry run pylint jogo.py
