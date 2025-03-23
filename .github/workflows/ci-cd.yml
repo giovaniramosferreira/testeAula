@@ -29,6 +29,8 @@ jobs:
       - name: Instalar dependências
         run: poetry install --no-root
 
+      - name: Rodar Testes com Pytest
+        run: poetry run pytest
 
       - name: Verificar PEP8
         run: poetry run flake8 jogo.py
@@ -41,6 +43,3 @@ jobs:
 
       - name: Analisar complexidade com Radon
         run: poetry run radon cc jogo.py -a
-
-      - name: Rodar Testes com Pytest
-        run: poetry run pytest
