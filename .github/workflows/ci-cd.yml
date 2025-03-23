@@ -43,4 +43,4 @@ jobs:
         run: poetry run radon cc jogo.py -a
 
       - name: Rodar Testes com Pytest
-        run: poetry run pytest jogo.py
+        run: poetry run pytest
